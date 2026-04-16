@@ -1,0 +1,176 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f9fafc;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+    background: #f4f6f8;
+}
+
+.tab.active {
+    color: #3498db;
+    border-bottom: 3px solid #3498db;
+    background: #f9fbff;
+}
+
+.section {
+    display: none;
+    padding: 30px;
+    animation: fadeIn 0.5s ease;
+}
+
+.section.active {
+    display: block;
+}
+
+.canteen-name{
+    font-weight: bold;
+}
+
+.items{
+    font-weight: bold;
+    color: red;
+}
+
+.order-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.order-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.order-card strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.order-card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    font-size: 13px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-move {
+    background: #3498db;
+    color: #fff;
+}
+
+.btn-move:hover {
+    background: #2980b9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.order-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Pushes button to bottom */
+    min-height: 180px;
+    /* Ensure consistent height */
+}
+
+.order-card strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.order-card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1;
+    /* Allows description area to expand */
+}
+
+.btn {
+    align-self: flex-start;
+    /* Keeps button aligned left */
+    margin-top: auto;
+    /* Pushes button to bottom */
+}
+
+
+.delivery{
+    background-color: red;
+}
+
+.delivery:hover{
+    background-color: #bfe4ed;
+    color: red;
+    font-weight: 100;
+}

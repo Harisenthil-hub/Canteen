@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="../styles/menu.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo-div">
+            <img src="../images/icons/amrita-logo-cropped.png" alt="amrita-logo">
+        </div>
+    </nav>
+
+
+
+    <section class="cart-section">
+        <h2 class="cart-title">Your Cart</h2>
+
+        <div class="cart-layout">
+            <!-- Cart Items (Row Style) -->
+            <div class="cart-row-container">
+                <!-- Cart Item 1 -->
+                <div class="cart-card">
+                    <img src="https://images.pexels.com/photos/2697931/pexels-photo-2697931.jpeg" alt="Burger"
+                        class="cart-img">
+                    <div class="cart-info">
+                        <h3 class="cart-title-item">Cheese Burger</h3>
+                        <p class="cart-price">$8.99</p>
+                        <div class="cart-actions">
+                            <div class="qty">
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </div>
+                            <button class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 2 -->
+                <div class="cart-card">
+                    <img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg" alt="Pizza"
+                        class="cart-img">
+                    <div class="cart-info">
+                        <h3 class="cart-title-item">Margherita Pizza</h3>
+                        <p class="cart-price">$12.50</p>
+                        <div class="cart-actions">
+                            <div class="qty">
+                                <button>-</button>
+                                <span>2</span>
+                                <button>+</button>
+                            </div>
+                            <button class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Item 3 -->
+                <div class="cart-card">
+                    <img src="../images/items/coffee.jpg" alt="Coffee" class="cart-img">
+                    <div class="cart-info">
+                        <h3 class="cart-title-item">Cappuccino</h3>
+                        <p class="cart-price">$4.20</p>
+                        <div class="cart-actions">
+                            <div class="qty">
+                                <button>-</button>
+                                <span>3</span>
+                                <button>+</button>
+                            </div>
+                            <button class="remove-btn">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Summary -->
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+
+                <!-- Each cart item row -->
+                <div class="summary-item">
+                    <span>Burger (x2)</span>
+                    <span>$17.98</span>
+                </div>
+                <div class="summary-item">
+                    <span>Pizza (x1)</span>
+                    <span>$12.50</span>
+                </div>
+                <div class="summary-item">
+                    <span>Coffee (x3)</span>
+                    <span>$12.60</span>
+                </div>
+
+                <hr>
+
+                <!-- Subtotal -->
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$43.08</span>
+                </div>
+
+                <!-- Delivery -->
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span>$3.00</span>
+                </div>
+
+                <!-- Grand Total -->
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>$46.08</span>
+                </div>
+
+                <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+
+
+            <!-- Payment Modal -->
+            <div class="payment-modal" id="paymentModal">
+                <div class="payment-content">
+                    <h3>Payment Process</h3>
+                    <p>Please wait while we process your payment...</p>
+                    <div class="loader"></div>
+                    <button id="closePayment">Close</button>
+                </div>
+            </div>
+
+
+       
+
+
+
+        </div>
+    </section>
+
+
+
+    <script>
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        const paymentModal = document.getElementById('paymentModal');
+        const closePayment = document.getElementById('closePayment');
+
+        checkoutBtn.addEventListener('click', () => {
+            paymentModal.style.display = 'flex'; // show modal
+
+            // Simulate payment delay
+            setTimeout(() => {
+                alert('Payment Successful! Thank you for your order.');
+                paymentModal.style.display = 'none';
+            }, 3000); // 3 seconds
+        });
+
+        closePayment.addEventListener('click', () => {
+            paymentModal.style.display = 'none';
+        });
+
+    </script>
+
+    
+</body>
+
+</html>

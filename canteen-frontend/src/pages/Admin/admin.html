@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Orders Panel</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f9fafc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab:hover {
+            background: #f4f6f8;
+        }
+
+        .tab.active {
+            color: #3498db;
+            border-bottom: 3px solid #3498db;
+            background: #f9fbff;
+        }
+
+        .section {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .order-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .order-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .order-card strong {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .order-card p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 14px;
+            font-size: 13px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-move {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .btn-move:hover {
+            background: #2980b9;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        .order-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Pushes button to bottom */
+            min-height: 180px;
+            /* Ensure consistent height */
+        }
+
+        .order-card strong {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .order-card p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+            flex-grow: 1;
+            /* Allows description area to expand */
+        }
+
+        .btn {
+            align-self: flex-start;
+            /* Keeps button aligned left */
+            margin-top: auto;
+            /* Pushes button to bottom */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>Admin Order Management</header>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="showSection('orders')">Orders</div>
+        <div class="tab" onclick="showSection('preparing')">Preparing</div>
+        <div class="tab" onclick="showSection('delivered')">Delivered</div>
+    </div>
+
+    <!-- Sections -->
+    <div class="section active" id="orders">
+        <div class="order-board">
+            <div class="order-card">
+                <strong>Order #1001</strong>
+                <p>Customer: John Doe</p>
+                <p>Items: 2x Burger, 1x Coke, 1x Juice, 1x Juice, 1x Juice, 1x Juice</p>
+                <button class="btn btn-move">Move to Preparing</button>
+            </div>
+            <div class="order-card">
+                <strong>Order #1002</strong>
+                <p>Customer: Sarah Lee</p>
+                <p>Items: 1x Pizza</p>
+                <button class="btn btn-move">Move to Preparing</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="preparing">
+        <div class="order-board">
+            <div class="order-card">
+                <strong>Order #1003</strong>
+                <p>Customer: Alex Smith</p>
+                <p>Items: 1x Sandwich, 1x Juice, 1x Juice, 1x Juice, 1x Juice, 1x Juice, 1x Juice</p>
+                <button class="btn btn-move">Move to Delivered</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="delivered">
+        <div class="order-board">
+            <div class="order-card">
+                <strong>Order #1000</strong>
+                <p>Customer: Emily Davis</p>
+                <p>Items: 2x Pasta</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
